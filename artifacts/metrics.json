@@ -1,0 +1,149 @@
+{
+  "config": {
+    "catchment_radius_m": 250,
+    "n_classes": 4,
+    "outer_splits": 5,
+    "inner_splits": 3,
+    "weekday_only": true,
+    "lines": [
+      "2호선",
+      "5호선",
+      "6호선",
+      "7호선",
+      "3호선",
+      "4호선",
+      "8호선",
+      "1호선"
+    ],
+    "features": [
+      "상하구분",
+      "시간대",
+      "주거_ratio",
+      "직장_ratio",
+      "관광_ratio"
+    ],
+    "random_state": 42
+  },
+  "model_comparison_nested": {
+    "LogReg": {
+      "nested_macro_f1": 0.27113090361738656,
+      "nested_accuracy": 0.2960238568588469,
+      "nested_mae": 1.1342942345924454
+    },
+    "RandomForest": {
+      "nested_macro_f1": 0.4503455991532016,
+      "nested_accuracy": 0.45457256461232604,
+      "nested_mae": 0.8108349900596421
+    },
+    "LightGBM": {
+      "nested_macro_f1": 0.44594570349903684,
+      "nested_accuracy": 0.44900596421471173,
+      "nested_mae": 0.814910536779324
+    }
+  },
+  "best_model": "RandomForest",
+  "best_params": {
+    "LogReg": {
+      "clf__C": 0.0010090061869151559,
+      "clf__l1_ratio": null,
+      "clf__penalty": "l2"
+    },
+    "RandomForest": {
+      "max_depth": 12,
+      "max_features": null,
+      "min_samples_leaf": 8,
+      "min_samples_split": 4,
+      "n_estimators": 405
+    },
+    "LightGBM": {
+      "colsample_bytree": 0.7,
+      "learning_rate": 0.01471005003927122,
+      "min_child_samples": 27,
+      "n_estimators": 614,
+      "num_leaves": 56,
+      "reg_alpha": 1.0,
+      "reg_lambda": 1.0,
+      "subsample": 0.85
+    }
+  },
+  "final_evaluation": {
+    "model": "RandomForest",
+    "accuracy": 0.4598409542743539,
+    "macro_f1": 0.45673204418241153,
+    "mae": 0.7984095427435388,
+    "critical_error_rate": 0.06322067594433399
+  },
+  "permutation_importance": {
+    "시간대": 0.21856,
+    "상하구분": 0.03099,
+    "직장_ratio": 0.02199,
+    "주거_ratio": 0.00798,
+    "관광_ratio": -0.0068
+  },
+  "generalization": {
+    "ablation": {
+      "time_only_f1": 0.43502484661162044,
+      "plus_land_f1": 0.45673204418241153,
+      "land_increment": 0.021707197570791092
+    },
+    "lolo": [
+      {
+        "line": "2호선",
+        "n": 2040,
+        "time_only": 0.40753237309292784,
+        "plus_land": 0.42116055631574667,
+        "land_effect": 0.013628183222818835
+      },
+      {
+        "line": "5호선",
+        "n": 2040,
+        "time_only": 0.41865675551533793,
+        "plus_land": 0.3885869491334055,
+        "land_effect": -0.030069806381932407
+      },
+      {
+        "line": "6호선",
+        "n": 1460,
+        "time_only": 0.34647671094808064,
+        "plus_land": 0.36239634096829293,
+        "land_effect": 0.015919630020212294
+      },
+      {
+        "line": "7호선",
+        "n": 1480,
+        "time_only": 0.43681648658880456,
+        "plus_land": 0.40996785437803085,
+        "land_effect": -0.026848632210773715
+      },
+      {
+        "line": "3호선",
+        "n": 1280,
+        "time_only": 0.41121555906667373,
+        "plus_land": 0.36860939848560836,
+        "land_effect": -0.042606160581065367
+      },
+      {
+        "line": "4호선",
+        "n": 960,
+        "time_only": 0.3974691773297363,
+        "plus_land": 0.47396136982499465,
+        "land_effect": 0.07649219249525835
+      },
+      {
+        "line": "8호선",
+        "n": 440,
+        "time_only": 0.4559906572855216,
+        "plus_land": 0.3436432293323681,
+        "land_effect": -0.11234742795315344
+      },
+      {
+        "line": "1호선",
+        "n": 360,
+        "time_only": 0.5087702974713942,
+        "plus_land": 0.4894104298986056,
+        "land_effect": -0.019359867572788625
+      }
+    ],
+    "lolo_mean_land_effect": -0.01564898612017801
+  }
+}

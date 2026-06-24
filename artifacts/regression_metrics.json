@@ -1,0 +1,31 @@
+{
+  "comparison_nested": {
+    "Ridge": {
+      "MAE": 16.716768549444964,
+      "RMSE": 22.15065929129429,
+      "R2": 0.020158668482866737
+    },
+    "RandomForest": {
+      "MAE": 13.916001327445281,
+      "RMSE": 18.728935936935915,
+      "R2": 0.2994991784475064
+    },
+    "LightGBM": {
+      "MAE": 14.62204726294596,
+      "RMSE": 19.630229138092893,
+      "R2": 0.23045649199170648
+    }
+  },
+  "best": "RandomForest",
+  "best_params": {
+    "max_depth": 8,
+    "max_features": null,
+    "min_samples_leaf": 5,
+    "n_estimators": 435
+  },
+  "ablation_r2": {
+    "time_only": 0.28885799702490533,
+    "plus_land": 0.29934526370843617,
+    "increment": 0.010487266683530838
+  }
+}
